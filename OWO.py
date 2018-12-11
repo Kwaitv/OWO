@@ -1,6 +1,8 @@
 import pyperclip
 import time
 import os
+from OWO_string import UWU
+
 #responses
 def ask(string, truth):
     #truth is a string
@@ -12,12 +14,6 @@ def ask(string, truth):
             return mode
         else:
             continue
-
-#converts pasted strings
-def OWO_string(phrase):
-    e = UWU(phrase)
-    print(e)
-    pyperclip.copy(e)
 
 #conerts files
 def OWO_file():
@@ -35,54 +31,15 @@ def OWO_file():
 
     print(str(os.path.getsize(gei+".txt")) +" bytes")
     new_file.close()
-def UWU(string):
-    e = ''
-    r = string.split()
-    for word in r:
-        if word.lower() in replace_s:
-            if word.isupper():
-                e += replace_s[word.lower()].capitalize()
-            else:
-                e += replace_s[word.lower()]
-            e += " "
-        else:
-            for characters in word:
-                if characters.lower() in replace:
-                    if characters.isupper():
-                        e += "W"
-                    else:
-                        e += "w"
-                else:
-                    e += characters
-            e += " "
-    if e.endswith(" "):
-        e = e[:-1]
-    return e
 
-#scalable part
-replace = ["r", "l"]
 
-#custom replacement
-replace_s =  {"you"    : "yuwu",
-              "god"    : "gowod",
-              "and"    : "awnd",
-              "the"    : "teh",
-              "that"   : "thawt",
-              "be"     : "bwe",
-              "man"    : "mawn",
-              "serpent": "sewpwent",
-              "unto"   : "untu",
-              "to"     : "tuwu",
-              "untrue" : "untwu"
-              }
+if __name__ == "__main__":
+    #decision
+    print("prerequisites for file conversion: \n - must be in the same folder \n - must be a .txt file\n\nalternative being phrase conversion \nwhich will ask you for a phrase \nand it will copy to your clipboard \nso all you need to do is paste")
 
-#decision
-print("prerequisites for file conversion: \n - must be in the same folder \n - must be a .txt file\n\nalternative being phrase conversion \nwhich will ask you for a phrase \nand it will copy to your clipboard \nso all you need to do is paste")
-p = ask("do you want to convert a file?","yes y no n")
-if p in "yes y".split():
     r = time.time()
     OWO_file()
+    
+    print(UWU('gay'))
     e = time.time()
     print("Done in {} seconds".format(e-r))
-else:
-    OWO_string(input("phrase pls\n"))
